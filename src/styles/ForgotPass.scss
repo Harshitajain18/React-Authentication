@@ -1,0 +1,27 @@
+.forgotbox{
+    border: 1px solid white;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px grey;
+  padding: 30px;
+  max-width: 456px;
+  margin-top: 100px;
+}
+.ResetPasswordButton{
+    button{
+        background-color: #D8DDE2;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 16px 10px 16px;
+        height: 38px;
+        width: 456px;
+    }
+
+}
+.ResetPasswordButton :hover{
+    cursor: pointer;
+    background-color: #C2C6CB;
+}
+.para{
+    color:#797E82;
+}
