@@ -1,10 +1,15 @@
 import React from "react";
-// import SignUp from "./SignUp";
 import { PrimaryButton, SecondaryButton } from "../common/Buttons";
 import "../../styles/LogIn.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LogIn() {
+  const navigate = useNavigate();
+ 
+  const handleSignup = () => {
+    navigate("/SignupPage");
+  };
+
   return (
     <>
       <div className="box">
@@ -28,17 +33,19 @@ function LogIn() {
             <label>Remember me</label>
           </div>
           <div className="link">
-            <Link to="/forgotpass">Forgot password?</Link>
+            <Link to="/forgot-password">Forgot Password?</Link>
           </div>
         </div>
-        <div className="loginbutton">
-          <PrimaryButton buttonText={"Log In"}></PrimaryButton>
-        </div>
+        
+        <PrimaryButton buttonText={"Log In"} />
+        
         <div className="createaccbtn">
-          <SecondaryButton ButtonText={"Create New Account"} />
+          <PrimaryButton
+            buttonText={"Create New Account"}
+            handleClick={handleSignup}
+          />
         </div>
       </div>
-      {/* <SignUp /> */}
     </>
   );
 }

@@ -16,43 +16,33 @@
   margin-left: 5px;
   margin-right: 5px;
 }
-.loginbutton {
-  button{
-    margin-top: 10px;
-    height: 38px;
-    width: 450px;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 16px 10px 16px ;
-    background-color:#D8DDE2;
-  }
-}
-.loginbutton :hover{
-  background-color: #c9d0d7;
-  cursor: pointer;
 
-}
+// .loginbutton :hover{
+//   background-color: #c9d0d7;
+//   cursor: pointer;
 
-.createaccbtn {
-  button {
-    margin-top: 5px;
-    background-color:  #EEEEF4;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 16px 10px 16px ;
-    width: 450px;
-    height: 38px;
-    font-weight: 500;
-    color:#171717;
-    font-size: 14px;
-    line-height: 18px;
-  }
-}
+// }
 
-.createaccbtn :hover{
-  background-color: #cfcfe0;
-  cursor: pointer;
-}
+// .createaccbtn {
+//   button {
+//     margin-top: 5px;
+//     background-color:  #EEEEF4;
+//     border: none;
+//     border-radius: 10px;
+//     padding: 10px 16px 10px 16px ;
+//     width: 450px;
+//     height: 38px;
+//     font-weight: 500;
+//     color:#171717;
+//     font-size: 14px;
+//     line-height: 18px;
+//   }
+// }
+
+// .createaccbtn :hover{
+//   background-color: #cfcfe0;
+//   cursor: pointer;
+// }
 .nextline {
   justify-content: flex-start;
   display: flex;
@@ -79,6 +69,7 @@
 .link{
   justify-content: flex-end;
   display: flex;
+  text-decoration: none;
 }
 input[type="email"] {
   width: 100%;

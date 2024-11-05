@@ -1,8 +1,13 @@
 import React from 'react'
 import '../../styles/ResetPassword.scss'
 import { PrimaryButton } from '../common/Buttons'
+import { useNavigate } from 'react-router-dom'
 
 export default function ResetPassword() {
+  const navigate=useNavigate();
+  const ResetSuccess = () => {
+    navigate('/ResetDone')
+  }
   return (
     <div className='reset-box'>
       <div className='reset-heading'>
@@ -16,7 +21,7 @@ export default function ResetPassword() {
         <input type='password' placeholder='Repeat new password'></input>
       </div>
       <div className='resetpassbtn' >
-       <PrimaryButton buttonText={"Reset Password"}></PrimaryButton>
+       <PrimaryButton buttonText={"Reset Password"} handleClick={ResetSuccess}></PrimaryButton>
       </div>
     </div>
   )

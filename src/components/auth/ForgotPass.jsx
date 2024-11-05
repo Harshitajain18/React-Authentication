@@ -1,10 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 import { GoArrowLeft } from "react-icons/go";
 import { PrimaryButton} from "../common/Buttons";
 import "../../styles/ForgotPass.scss";
 
 function ForgotPass() {
+
+  const navigate=useNavigate();
+  const HandleResetPass = () => {
+    navigate('/reset-password');
+  }
  
   return (
     <div>
@@ -21,7 +26,7 @@ function ForgotPass() {
             <input type='email' placeholder='name@email.com'></input>
           </div>
           <div className="ResetPasswordButton">
-          <PrimaryButton buttonText={"Reset Password"}></PrimaryButton>
+          <PrimaryButton buttonText={"Reset Password"} handleClick={HandleResetPass}></PrimaryButton>
         </div>
         </div>
     </div>

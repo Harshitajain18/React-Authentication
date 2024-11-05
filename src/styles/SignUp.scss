@@ -28,13 +28,9 @@
     display: flex;
     margin-top: 24px;
 }
-.Name-label{
-justify-content: space-between;
-display: flex;
-}
-.name-input{
-    justify-content: space-between;
-    display: flex;
+.name-surname{
+    display: inline-flex;
+    gap: 20px;
 }
 input[type="text"]{
     width: 100%;
