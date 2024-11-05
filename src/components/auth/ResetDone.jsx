@@ -9,8 +9,8 @@ export default function ResetDone() {
     <div className='success-icon'> 
     <FcOk size={40} />
     </div>
-            <h3 className='success'>Password Reset Done</h3>
-            <p className='reset-para'>Now you can access you account. </p>
+        <h3 className='success'>Password Reset Done</h3>
+        <p className='reset-para'>Now you can access you account. </p>
         <div className='Sign-in'>
         <SecondaryButton ButtonText={"Sign In"}></SecondaryButton>
         </div>

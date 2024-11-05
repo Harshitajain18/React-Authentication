@@ -1,0 +1,47 @@
+.signup-box{
+    border: 1px solid white;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px grey;
+  padding: 30px;
+  max-width: 456px;
+  margin-top: 100px;
+}
+
+.create-acc{
+    button{
+        background-color: #D8DDE2;
+        border: none;
+        border-radius: 10px;
+        height: 38px;
+        width: 450px;
+        padding: 10px 16px 10px 16px;
+        margin-top: 24px;
+    }
+}
+.create-acc :hover{
+    cursor: pointer;
+    background-color: #C2C6CB;
+}
+.already-have{
+    justify-content: center;
+    display: flex;
+    margin-top: 24px;
+}
+.Name-label{
+justify-content: space-between;
+display: flex;
+}
+.name-input{
+    justify-content: space-between;
+    display: flex;
+}
+input[type="text"]{
+    width: 100%;
+    padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}

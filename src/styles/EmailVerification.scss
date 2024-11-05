@@ -1,0 +1,33 @@
+.email-box{
+    border: 1px solid white;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px grey;
+    padding: 30px;
+    max-width: 456px;
+    margin-top: 100px;
+}
+
+.email-icon{
+    color: #5F00D9;
+}
+.re-send-btn{
+    button{
+        background-color: #EEEEF4;
+        height: 38px;
+        width: 450px;
+        padding: 10px 16px 10px 16px;
+        border: none;
+        border-radius: 10px;
+        margin-top: 24px;
+    }
+   
+}
+.re-send-btn :hover{
+    background-color: #cfcfe0;
+    cursor: pointer;
+}
+.email-heading , .email-icon{
+    justify-content: center;
+    display: flex;
+}
