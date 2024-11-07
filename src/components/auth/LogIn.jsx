@@ -1,5 +1,5 @@
 import React from "react";
-import { PrimaryButton, SecondaryButton } from "../common/Buttons";
+import { PrimaryButton} from "../common/Buttons";
 import "../../styles/LogIn.scss";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -9,8 +9,8 @@ function LogIn() {
   const handleSignup = () => {
     navigate("/SignupPage");
   };
-
-  return (
+  
+return (
     <>
       <div className="box">
         <div className="box__welcome">
@@ -36,7 +36,7 @@ function LogIn() {
             <Link to="/forgot-password">Forgot Password?</Link>
           </div>
         </div>
-        
+
         <PrimaryButton buttonText={"Log In"} />
         
         <div className="createaccbtn">
