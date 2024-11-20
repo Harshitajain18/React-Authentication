@@ -1,8 +1,8 @@
 import React from "react";
 
-function PrimaryButton({buttonText, buttonIcon, handleClick}) {
+function PrimaryButton({buttonText, buttonIcon, handleClick, isDisabled, buttonClassName}) {
   return (
-    <button className="primary_button" onClick={handleClick}>
+    <button className={`primary_button ${buttonClassName}`} disabled={isDisabled} onClick={handleClick}>
         {buttonIcon}
         {buttonText}
     </button>

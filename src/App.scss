@@ -1,0 +1,36 @@
+.primary_button {
+  margin-top: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px 10px 16px;
+  background-color: #5f00d9;
+  color: #ffffff;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+
+  &.fit-width {
+    width: auto;
+  }
+}
+
+button:disabled {
+  background-color: #d8dde2;
+  color: #ffffff;
+  cursor: not-allowed;
+}
+
+.primary_button :hover {
+  color: black;
+  cursor: pointer;
+}
+.secondary_button {
+  border: none;
+  background-color: #5f00d9;
+  color: white;
+  padding: 10px 16px 10px 16px;
+  height: 38px;
+  width: 456px;
+  border-radius: 10px;
+}
