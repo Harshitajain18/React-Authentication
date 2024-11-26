@@ -49,6 +49,9 @@ function LogIn() {
             Enter your credentials to access the account
           </p>
         </div>
+        {/* <form onSubmit={handleLogin}>
+          <button type="submit">Login</button>
+        </form> */}
         <div className="box__form">
           <div className="email">
             <label htmlFor="email">Email</label>
