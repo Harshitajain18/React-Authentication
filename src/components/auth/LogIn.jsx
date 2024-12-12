@@ -44,11 +44,11 @@ function LogIn() {
     <>
       <div className="box">
         <div className="box__welcome">
-          <h3 className="welcome">Welcome to Harshita App</h3>
+          <h3 className="welcome">Welcome to the App</h3>
           <p className="nextline">
             Enter your credentials to access the account
           </p>
-        </div>
+        </div> 
         {/* <form onSubmit={handleLogin}>
           <button type="submit">Login</button>
         </form> */}
@@ -83,10 +83,10 @@ function LogIn() {
           </div>
         </div>
 
-        <PrimaryButton
-          buttonText={"Log In"}
+        <PrimaryButton 
+          buttonText={"Log In"} 
           isDisabled={isDisabled}
-          handleClick={submitLoginForm}
+          handleClick={submitLoginForm} 
         />
 
         <div className="createaccbtn">

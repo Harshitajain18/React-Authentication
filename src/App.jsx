@@ -12,7 +12,7 @@ import Homepage from "./pages/homepage";
 
 function App() {
   return (
-    <>
+    <> 
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage/>} />
