@@ -1,53 +1,70 @@
 import React, { useEffect, useState } from "react";
 import { PrimaryButton } from "../common/Buttons";
-import { Link,useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "../../styles/SignUp.scss";
 
 function SignUp() {
   const [isDisabled, setIsDisabled] = useState(true);
-  const [name , setName]= useState("");
+  const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
-  const [email,setEmail] = useState("");
-  const [password , setPassword] =useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [repeatpass, setRepeatPass] = useState("");
 
-    const HandleSignUp = () =>{
-      if (name === "" || surname === "" || email ==="" || password === "" || repeatpass === ""){
-        setIsDisabled(true);
-      }
-      else{
-        setIsDisabled(false);
-      }
+  const HandleSignUp = () => {
+    if (name === "" || surname === "" || email === "" || password === "" || repeatpass === "") {
+      setIsDisabled(true);
     }
-
-  const navigate=useNavigate();
-  const CreateAcc = () =>{
-    navigate('/emailVerification')
+    else {
+      setIsDisabled(false);
+    }
   }
 
-useEffect(()=>{
-  HandleSignUp();
-},[name,surname,email,password,repeatpass]);
+  // const navigate = useNavigate();
+  // const CreateAcc = () => {
+  //   navigate('/emailVerification')
+  // }
 
-const handlename = (event) =>{
-setName(event.target.value);
-}
+  useEffect(() => {
+    HandleSignUp();
+  }, [name, surname, email, password, repeatpass]);
 
-const handlesurname = (event) =>{
-  setSurname(event.target.value);
+  const handlename = (event) => {
+    setName(event.target.value);
   }
 
-  const handleEmail = (event) =>{
+  const handlesurname = (event) => {
+    setSurname(event.target.value);
+  }
+
+  const handleEmail = (event) => {
     setEmail(event.target.value);
-    }
-
-  const handlepass = (event) =>{
-setPassword(event.target.value);
   }
 
-  const handleRePass = (event) =>{
+  const handlepass = (event) => {
+    setPassword(event.target.value);
+  }
+
+  const handleRePass = (event) => {
     setRepeatPass(event.target.value);
   }
+
+  function SendUser(){
+    let data={name: name, surname: surname, email: email, password: password, repeatpass: repeatpass}
+    fetch("http://localhost:8080/api/auth/signup",{
+      method:'POST',
+      headers:{
+        "Accept":'application/json',  // You expect the server to return JSON.
+        "Content-Type":"application/json" // You are sending JSON data to the server.
+      },
+      body:JSON.stringify(data)  // Converts the data to a JSON string
+    }).then((result)=>{
+      result.json().then((response)=>{
+        console.log("response",response);
+      })
+    })
+  }
+
   return (
     <>
       <div className="signup-box">
@@ -78,9 +95,7 @@ setPassword(event.target.value);
             <input type="checkbox"></input>
             <label>I agree with terms & conditions</label>
           </div>
-          <div className="create-acc">
-            <PrimaryButton buttonText={"Create Account"} isDisabled={isDisabled} handleClick={CreateAcc}></PrimaryButton>
-          </div>
+          <PrimaryButton buttonText={"Create Account"} isDisabled={isDisabled} handleClick={SendUser}></PrimaryButton>
           <div className="already-have">
             <span>Already have an account?</span>
             <Link to="/">Log In</Link>

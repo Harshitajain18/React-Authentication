@@ -2,43 +2,74 @@ import React, { useEffect, useState } from "react";
 import { PrimaryButton } from "../common/Buttons";
 import "../../styles/LogIn.scss";
 import { Link, useNavigate } from "react-router-dom";
-// const [password, setPassword] = useState("Abc@12");
 
 function LogIn() {
   const navigate = useNavigate();
-  const [emailValue, setEmailValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
+  // const [loggedin, setLoggedIn] =useState();
 
   const handleSignup = () => {
     navigate("/SignupPage");
   };
 
   const handleEmailChange = (event) => {
-    setEmailValue(event.target.value);
+    setemail(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
-    setPasswordValue(event.target.value);
+    setpassword(event.target.value);
   };
 
-  const submitLoginForm = () => {
-    console.log("emailValue: ", emailValue);
-    console.log("passwordValue: ", passwordValue);
-  };
 
   const handleButtonDisable = () => {
-    if(emailValue==="" || passwordValue===""){
+    if(email==="" || password===""){
       setIsDisabled(true);
     } else{
       setIsDisabled(false);
     }
   };
 
+  const submitLoginForm = () => {
+    // console.log("email: ", email);
+    // console.log("password: ", password);
+    SendData();
+  };
+
+
+function SendData(){
+  let data={email, password}
+  // let data = { email: email, password: password };
+
+  fetch("http://localhost:8080/api/auth/login",{
+    method:'POST',
+    headers:{
+      "Accept":'application/json',  
+      "Content-Type":"application/json" 
+    },
+    body:JSON.stringify(data)  
+  }).then((result)=>{
+    result.json().then((response)=>{
+      console.log("response",response);
+
+      // if (loggedin){
+      //   {User.name}
+      //   <button>Log out</button>
+      // }
+      // else{
+      //   <button>Login</button>
+      // }
+
+    })
+  })
+}
+
+
   useEffect(() => {
     handleButtonDisable();
     // console.log("isDisabled: ", isDisabled);
-  }, [emailValue, passwordValue]);
+  }, [email, password]);
 
   return (
     <>
@@ -56,7 +87,7 @@ function LogIn() {
           <div className="email">
             <label htmlFor="email">Email</label>
             <input
-              value={emailValue}
+              value={email}
               onChange={handleEmailChange}
               type="email"
               id="email"
@@ -68,7 +99,7 @@ function LogIn() {
             <label htmlFor="password">Password</label>
             <input
               name="password"
-              value={passwordValue}
+              value={password}
               onChange={handlePasswordChange}
               type="password"
               placeholder="Enter password"
