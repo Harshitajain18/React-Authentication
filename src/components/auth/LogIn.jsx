@@ -22,6 +22,14 @@ function LogIn() {
     setpassword(event.target.value);
   };
 
+  // const handlePasswordChange = (event) => {
+  //   const newPassword = event.target.value;
+  //   if (newPassword.length <= 9) {
+  //     setpassword(newPassword);
+  //   } else {
+  //     console.log("Password must not exceed 9 characters.");
+  //   }
+  // };
 
   const handleButtonDisable = () => {
     if(email==="" || password===""){

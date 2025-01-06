@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { PrimaryButton } from "../common/Buttons";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../styles/SignUp.scss";
 
 function SignUp() {
@@ -9,7 +9,7 @@ function SignUp() {
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [repeatpass, setRepeatPass] = useState("");
+  const [repeatpass, setrepeatpass] = useState("");
 
   const HandleSignUp = () => {
     if (name === "" || surname === "" || email === "" || password === "" || repeatpass === "") {
@@ -37,16 +37,63 @@ function SignUp() {
     setSurname(event.target.value);
   }
 
-  const handleEmail = (event) => {
-    setEmail(event.target.value);
+  // const handleEmail = (event) => {
+  //   setEmail(event.target.value);
+  // }
+  
+  const handleEmail = (event) =>{
+    const email=event.target.value;
+    const specialChar = /[!#$%^&*(),?":{}|<>]/;
+    if (! specialChar.test(email)){
+    setEmail(email);
+    }
+    else{
+      alert("Email should not contain any special character");
+    }
   }
 
-  const handlepass = (event) => {
-    setPassword(event.target.value);
-  }
+  // const handlepass = (event) => {
+  //   setPassword(event.target.value);
+  // }
+
+    const handlepass = (event) => {
+    const newPassword = event.target.value;
+    if (newPassword.length <= 9) {
+      setPassword(newPassword);
+    } else {
+      alert("Password must not exceed 9 characters.");
+    }
+  };
+
+  // const handlepass = (event) => {
+  //   const newPassword = event.target.value;
+  
+  //   const specialChar = /[!@#$%^&*(),.?":{}|<>]/;
+  
+  //   if (newPassword.length > 9) {
+  //     alert("Password must not exceed 9 characters.");
+  //     return;
+  //   }
+  
+  //   if (!specialChar.test(newPassword)) {
+  //     alert("Password must contain at least one special character.");
+  //     return;
+  //   }
+  
+  //   setPassword(newPassword);
+  // };
+ 
 
   const handleRePass = (event) => {
-    setRepeatPass(event.target.value);
+    // setrepeatpass(event.target.value);
+    const repeatpass = event.target.value;
+    setrepeatpass(repeatpass);
+    if(repeatpass && repeatpass !== password) {
+      alert("Password must be same");
+    }
+    else{
+      setrepeatpass(repeatpass);
+    }
   }
 
   function SendUser(){
