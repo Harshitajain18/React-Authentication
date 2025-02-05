@@ -32,46 +32,30 @@ function LogIn() {
   // };
 
   const handleButtonDisable = () => {
-    if(email==="" || password===""){
+    if (email === "" || password === "") {
       setIsDisabled(true);
-    } else{
+    } else {
       setIsDisabled(false);
     }
   };
 
-  const submitLoginForm = () => {
-    // console.log("email: ", email);
-    // console.log("password: ", password);
-    SendData();
-  };
+  function submitLoginForm() {
+    let data = { email, password }
+    // let data = { email: email, password: password };
 
-
-function SendData(){
-  let data={email, password}
-  // let data = { email: email, password: password };
-
-  fetch("http://localhost:8080/api/auth/login",{
-    method:'POST',
-    headers:{
-      "Accept":'application/json',  
-      "Content-Type":"application/json" 
-    },
-    body:JSON.stringify(data)  
-  }).then((result)=>{
-    result.json().then((response)=>{
-      console.log("response",response);
-
-      // if (loggedin){
-      //   {User.name}
-      //   <button>Log out</button>
-      // }
-      // else{
-      //   <button>Login</button>
-      // }
-
+    fetch("http://localhost:8080/api/auth/login", {
+      method: 'POST',
+      headers: {
+        "Accept": 'application/json',
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }).then((result) => {
+      result.json().then((response) => {  
+        console.log("response", response);
+      })
     })
-  })
-}
+  }
 
 
   useEffect(() => {
@@ -87,7 +71,7 @@ function SendData(){
           <p className="nextline">
             Enter your credentials to access the account
           </p>
-        </div> 
+        </div>
         {/* <form onSubmit={handleLogin}>
           <button type="submit">Login</button>
         </form> */}
@@ -122,10 +106,10 @@ function SendData(){
           </div>
         </div>
 
-        <PrimaryButton 
-          buttonText={"Log In"} 
+        <PrimaryButton
+          buttonText={"Log In"}
           isDisabled={isDisabled}
-          handleClick={submitLoginForm} 
+          handleClick={submitLoginForm}
         />
 
         <div className="createaccbtn">

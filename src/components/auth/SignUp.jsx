@@ -64,39 +64,22 @@ function SignUp() {
       alert("Password must not exceed 9 characters.");
     }
   };
-
-  // const handlepass = (event) => {
-  //   const newPassword = event.target.value;
-  
-  //   const specialChar = /[!@#$%^&*(),.?":{}|<>]/;
-  
-  //   if (newPassword.length > 9) {
-  //     alert("Password must not exceed 9 characters.");
-  //     return;
-  //   }
-  
-  //   if (!specialChar.test(newPassword)) {
-  //     alert("Password must contain at least one special character.");
-  //     return;
-  //   }
-  
-  //   setPassword(newPassword);
-  // };
  
 
   const handleRePass = (event) => {
     // setrepeatpass(event.target.value);
     const repeatpass = event.target.value;
     setrepeatpass(repeatpass);
-    if(repeatpass && repeatpass !== password) {
+  }
+
+  function SendUser(){
+    if(repeatpass !== password) {
       alert("Password must be same");
     }
     else{
       setrepeatpass(repeatpass);
     }
-  }
-
-  function SendUser(){
+    
     let data={name: name, surname: surname, email: email, password: password, repeatpass: repeatpass}
     fetch("http://localhost:8080/api/auth/signup",{
       method:'POST',
@@ -110,6 +93,7 @@ function SignUp() {
         console.log("response",response);
       })
     })
+   
   }
 
   return (
